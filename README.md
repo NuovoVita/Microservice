@@ -33,3 +33,21 @@ GRANT ALL ON Microservice.* TO 'AntMan'@'%';
 GRANT ALL ON Statistics.* TO 'AntMan'@'%';
 FLUSH PRIVILEGES;
 ```
+
+### 3. 运行程序
+
+```bash
+echo "export PROFILE=dev" > .env
+source .env
+python wsgi.py
+```
+
+### 4. 结果查看
+
+```bash
+# 1. 写数据
+curl -H "Content-type: application/json" -X POST -d '{"method": "Answer4","count": 1000}' http://127.0.0.1:5000/api/save-user
+
+# 2. 读数据
+浏览器http://127.0.0.1:5000/api/user
+```
