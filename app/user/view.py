@@ -41,7 +41,7 @@ def save_user():
         for _ in range(count):
             instance = tab_model(
                 name=fake.name(),
-                gender=random.choices(all_gender)[0],
+                gender=random.choice(all_gender),
                 birth=str(fake.date_of_birth())
             )
             db.session.add(instance)

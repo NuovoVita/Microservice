@@ -5,7 +5,7 @@ import pathlib
 
 from flask import Flask
 
-PROJECT_ROOT = pathlib.Path(__file__).resolve().parent
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parent.parent
 PROFILE = os.getenv('PROFILE', 'prod')
 logger = None
 
@@ -31,7 +31,7 @@ class MicroserviceMain:
         if not profile:
             profile = os.getenv('PROFILE', 'prod')
 
-        from .conf import config
+        from conf import config
         app.config.from_object(config[profile])
 
     @classmethod
